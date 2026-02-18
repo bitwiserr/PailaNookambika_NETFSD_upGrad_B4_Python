@@ -1,1 +1,52 @@
+/* Day3 HANDS ON - PAILA NOOKAMBIKA */
+.profile-card {
+  background-color: #f3def2;
+  border: 2px solid #680484;
+  border-radius: 10px;
+  width: 300px;
+  margin: 50px auto;   
+  padding: 20px;       
+  text-align: center;  
+  font-family: Arial, sans-serif;
+}
 
+/* Name styling */
+.name {
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Role styling */
+.role {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Bio paragraph */
+.bio {
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #161515;
+  margin-bottom: 20px;
+}
+
+/* Contact button */
+.contact-btn {
+  background-color: #0b6ebf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.contact-btn:hover {
+  background-color: #5a9bd5;
+}
