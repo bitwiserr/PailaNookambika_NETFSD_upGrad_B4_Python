@@ -1,0 +1,70 @@
+body {
+      background-color: #cbb1b1;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  color: rgb(3, 3, 100);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: Georgia, serif;
+  color: #851515;
+  line-height: 1.6;
+}
+
+/* Section styling */
+.highlight {
+  background-color: #3d99e9;
+  border: 2px solid #042a48;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+/* Box model demonstration */
+.box-model-demo {
+  background-color: #7a82ef;
+  border: 3px dashed #6d451c;
+  padding: 20px;   /* inside spacing */
+  margin: 30px;    /* outside spacing */
+  text-align: center;
+}
+
+/* Form styling */
+.styled-form {
+  background-color: #cbb1b1;
+  border: 4px solid #cda3a3;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.styled-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  background-color: #cbb1b1;
+}
+
+.styled-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.styled-form button {
+  background-color: #4682b4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.styled-form button:hover {
+  background-color: #5a9bd5;
+}
