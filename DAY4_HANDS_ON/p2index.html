@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Evaluator</title>
+</head>
+<body>
+    <h4>Simple Java Script program to evaluate a student's performance</h4>
+    <p id="marks"></p>
+    <script>
+        var Student_marks = prompt("enter your marks (1 to 100): ");
+        var Your_Grade="";
+
+        if(Student_marks >= 75){
+            Your_Grade="GRADE A";
+        }
+        else if(Student_marks >= 60){
+            Your_Grade="GRADE B";
+        }
+        else if(Student_marks >= 40){
+            Your_Grade="GRADE C";
+        }
+        else{
+            Your_Grade="YOU ARE FAILED";
+        }
+
+        document.getElementById("marks").innerText="Your Result: "+ Your_Grade;
+
+
+    </script>
+</body>
+</html>
