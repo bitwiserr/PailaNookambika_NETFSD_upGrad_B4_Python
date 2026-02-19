@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Analysis Tool</title>
+</head>
+<body>
+  <h3>Number Analysis Tool</h3>
+  <p id="range"></p>
+
+  <script>
+    
+    let num = prompt("Enter a number:");
+
+    // Print numbers from 1 to num (loop)
+    let output = "";
+    for (let i = 1; i <= num; i++) {
+      output += i + " ";
+    }
+    document.getElementById("range").innerText = "Numbers from 1 to " + num + ": " + output;
+  </script>
+</body>
+</html>
