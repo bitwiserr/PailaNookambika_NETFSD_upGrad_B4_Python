@@ -1,0 +1,40 @@
+<!-- Paila Nookambika Feb/17 DAY2 HANDS ON PROBLEMS -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+</head>
+<body>
+    <nav>
+    <a href="p1index.html">Home</a> |
+    <a href="p1contact.html">Contact</a>
+    </nav>
+    <h2>Registration Form</h2>
+
+    <form>
+        Name:<br>
+        <input type="text" placeholder="Enter name" required><br><br>
+
+        Email:<br>
+        <input type="email" placeholder="Enter email" required><br><br>
+
+        Password:<br>
+        <input type="password" placeholder="Enter password" required><br><br>
+
+        Gender:<br>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female<br><br>
+
+        Course:<br>
+        <input list="courses" placeholder="Select course" required>
+        <datalist id="courses">
+            <option value="Java">
+            <option value="Python">
+            <option value="Computer Science">
+        </datalist><br><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
