@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Analysis Tool</title>
+</head>
+<body>
+  <h3>Number Analysis Tool</h3>
+  <p id="positivity"></p>
+  <p id="even_odd"></p>
+  <p id="range"></p>
+
+  <script>
+    
+    let num = prompt("Enter a number:");
+
+    // Check Positive or Negative (ternary operator)
+    let positivity = (num >= 0) ? "Positive" : "Negative";
+    document.getElementById("positivity").innerText = "The number is " + positivity;
+
+    
+  </script>
+</body>
+</html>
