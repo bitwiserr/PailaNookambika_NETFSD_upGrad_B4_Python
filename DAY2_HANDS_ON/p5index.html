@@ -1,0 +1,53 @@
+
+<!-- PAILA NOOKAMBIKA DAY2 HANDS ON -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Enrollment Form</title>
+</head>
+<body>
+  <h2>Course Enrollment Form</h2>
+
+  <form>
+    <!-- Email -->
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+
+    <!-- Course Selection with datalist -->
+    <label for="course">Choose a Course:</label>
+    <input list="courses" id="course" name="course" required>
+    <datalist id="courses">
+      <option value="HTML Basics">
+      <option value="CSS Fundamentals">
+      <option value="JavaScript Essentials">
+      <option value="Python Programming">
+      <option value="Java Backend Development">
+    </datalist>
+    <br><br>
+
+    <!-- Skill Level with meter -->
+    <label for="skill">Skill Level (1–10):</label>
+    <input type="number" id="skill" name="skill" min="1" max="10" required>
+    <br>
+    <meter id="skillMeter" value="5" min="1" max="10" low="3" high="7" optimum="10">
+      Skill Level
+    </meter>
+    <br><br>
+
+    <!-- Range for Study Hours -->
+    <label for="hours">Study Hours per Week:</label>
+    <input type="range" id="hours" name="hours" min="1" max="20" value="10">
+    <br><br>
+
+    <!-- Progress bar (static representation) -->
+    <label for="progress">Enrollment Progress:</label>
+    <progress id="progress" value="50" max="100"></progress>
+    <br><br>
+
+    <!-- Submit -->
+    <button type="submit">Enroll Now</button>
+  </form>
+</body>
+</html>
