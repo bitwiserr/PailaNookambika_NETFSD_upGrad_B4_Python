@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Cart Summary</title>
+</head>
+<body>
+  <h1>Product Cart Summary</h1>
+  <pre id="invoice"></pre>
+
+  
+  <script type="module">
+    //for produv
+    const products = [
+      { name: "Laptop", price: 45000, quantity: 1 },
+      { name: "Mouse", price: 700, quantity: 2 },
+      { name: "Keyboard", price: 2000, quantity: 1 },
+    ];
+
+   
+    const calculateTotal = (cart) =>
+      cart.map(item => item.price * item.quantity)
+          .reduce((acc, val) => acc + val, 0);
+
+    const generateInvoice = (cart) => {
+      const total = calculateTotal(cart);
+      console.log(`
+Invoice Summary:
+${cart.map(item => `${item.name} x ${item.quantity} = ₹${item.price * item.quantity}`).join("\n")}
+-------------------------
+Total Cart Value = ₹${total}
+      `);
+      };
+
+    
+    document.getElementById("invoice").textContent = generateInvoice(products);
+  </script>
+</body>
+</html>
