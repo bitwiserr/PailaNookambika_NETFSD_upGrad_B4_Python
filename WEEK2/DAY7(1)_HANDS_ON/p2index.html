@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  
+  <form>
+    <!-- Name Field -->
+    Name: 
+    <input type="text" id="name" onchange="validateName()" />
+    <span id="nameMsg"></span>
+    <br><br>
+
+    <!-- Email Field -->
+    Email: 
+    <input type="text" id="email" onchange="validateEmail()" />
+    <span id="emailMsg"></span>
+    <br><br>
+
+    <!-- Age Field -->
+    Age: 
+    <input type="number" id="age" onchange="validateAge()" />
+    <span id="ageMsg"></span>
+    <br><br>
+
+    <!-- Submit Button -->
+    <button type="button" onclick="storeData()">Register</button>
+  </form>
+
+  <script>
+    function validateName() {
+      let name = document.getElementById("name").value;
+      let msg = document.getElementById("nameMsg");
+      if (name.trim() === "") {
+        msg.innerHTML = "Name cannot be empty";
+        msg.className = "error";
+        return false;
+      } else {
+        msg.innerHTML = "Valid name";
+        msg.className = "success";
+        return true;
+      }
+    }
+
+    function validateEmail() {
+      let email = document.getElementById("email").value;
+      let msg = document.getElementById("emailMsg");
+      if (!email.includes("@")) {
+        msg.innerHTML = "Email must contain '@'";
+        msg.className = "error";
+        return false;
+      } else {
+        msg.innerHTML = "Valid email";
+        msg.className = "success";
+        return true;
+      }
+    }
+
+    function validateAge() {
+      let age = document.getElementById("age").value;
+      let msg = document.getElementById("ageMsg");
+      if (age <= 18) {
+        msg.innerHTML = "Age must be greater than 18";
+        msg.className = "error";
+        return false;
+      } else {
+        msg.innerHTML = "Valid age";
+        msg.className = "success";
+        return true;
+      }
+    }
+
+    function storeData() {
+      if (validateName() && validateEmail() && validateAge()) {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let age = document.getElementById("age").value;
+
+        // Store in sessionStorage
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("age", age);
+
+        alert("Data stored successfully in sessionStorage!");
+      } else {
+        alert("Please fix validation errors before submitting.");
+      }
+    }
+  </script>
+</body>
+</html>
