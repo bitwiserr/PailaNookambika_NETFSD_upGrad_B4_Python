@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Expense Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .error { color: red; }
+    .success { color: green; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h2>Mini Expense Tracker</h2>
+
+  <!-- Expense Form -->
+  <label>Expense Title:</label>
+  <input type="text" id="title"><br><br>
+
+  <label>Amount:</label>
+  <input type="number" id="amount"><br><br>
+
+  <label>Date:</label>
+  <input type="date" id="date"><br><br>
+
+  <!-- Buttons -->
+  <button onclick="addExpense()">Add Expense</button>
+  <button onclick="viewExpenses()">View Expenses</button>
+  <button onclick="deleteExpense()">Delete Expense</button>
+
+  <!-- Output -->
+  <div id="msg"></div>
+  <div id="expenseList"></div>
+
+  <script>
+    // Open Web SQL Database
+    let db = openDatabase("ExpenseDB", "1.0", "Expense Tracker DB", 2 * 1024 * 1024);
+
+    // Create table if not exists
+    db.transaction(function(tx) {
+      tx.executeSql(
+        "CREATE TABLE IF NOT EXISTS expenses (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, amount REAL, date TEXT)",
+        [],
+        function() {
+          console.log("Table created successfully");
+        },
+        function(tx, error) {
+          console.error("Error creating table:", error.message);
+        }
+      );
+    });
+
+    // Add Expense
+    function addExpense() {
+      let title = document.getElementById("title").value;
+      let amount = document.getElementById("amount").value;
+      let date = document.getElementById("date").value;
+
+      if (title.trim() === "" || amount.trim() === "" || date.trim() === "") {
+        document.getElementById("msg").innerHTML = "<span class='error'>All fields are required.</span>";
+        return;
+      }
+
+      db.transaction(function(tx) {
+        tx.executeSql(
+          "INSERT INTO expenses (title, amount, date) VALUES (?, ?, ?)",
+          [title, amount, date],
+          function() {
+            document.getElementById("msg").innerHTML = "<span class='success'>Expense added successfully!</span>";
+            viewExpenses();
+          },
+          function(tx, error) {
+            document.getElementById("msg").innerHTML = "<span class='error'>Error adding expense: " + error.message + "</span>";
+          }
+        );
+      });
+    }
+
+    // View Expenses
+    function viewExpenses() {
+      db.transaction(function(tx) {
+        tx.executeSql(
+          "SELECT * FROM expenses",
+          [],
+          function(tx, results) {
+            let len = results.rows.length;
+            let output = "<table><tr><th>ID</th><th>Title</th><th>Amount</th><th>Date</th></tr>";
+            for (let i = 0; i < len; i++) {
+              let row = results.rows.item(i);
+              output += "<tr><td>" + row.id + "</td><td>" + row.title + "</td><td>" + row.amount + "</td><td>" + row.date + "</td></tr>";
+            }
+            output += "</table>";
+            document.getElementById("expenseList").innerHTML = output;
+          },
+          function(tx, error) {
+            document.getElementById("msg").innerHTML = "<span class='error'>Error fetching expenses: " + error.message + "</span>";
+          }
+        );
+      });
+    }
+
+    // Delete Expense (by ID)
+    function deleteExpense() {
+      let id = prompt("Enter the ID of the expense to delete:");
+      if (!id) return;
+
+      db.transaction(function(tx) {
+        tx.executeSql(
+          "DELETE FROM expenses WHERE id = ?",
+          [id],
+          function() {
+            document.getElementById("msg").innerHTML = "<span class='success'>Expense deleted successfully!</span>";
+            viewExpenses();
+          },
+          function(tx, error) {
+            document.getElementById("msg").innerHTML = "<span class='error'>Error deleting expense: " + error.message + "</span>";
+          }
+        );
+      });
+    }
+
+    // Show expenses on page load
+    window.onload = function() {
+      viewExpenses();
+    };
+  </script>
+</body>
+</html>
