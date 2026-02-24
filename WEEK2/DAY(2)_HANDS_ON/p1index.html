@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Analyzer</title>
+</head>
+<body>
+    <h1>Student Marks Stored in an Array</h1>
+    <div id="output"></div> <!-- Placeholder for results -->
+
+<script>
+    // storing student marks in an array
+    const marks = [87, 56, 75, 95, 61];
+
+    // using arrow function to calculate total
+    const calTotal = (marksArray) => marksArray.reduce((acc, mark) => acc + mark, 0);
+
+    // calculating average
+    const calAvg = (marksArray) => calTotal(marksArray) / marksArray.length;
+
+    // pass and fail based on avg
+    const checkResult = (average) => average >= 50 ? "PASS 👍" : "FAIL 🤕";
+
+    // main function
+    const analyzeMarks = (marksArray) => {
+        const total = calTotal(marksArray);
+        const average = calAvg(marksArray);
+        const result = checkResult(average);
+
+        // for displaying output
+        return `
+        Student Marks: ${marksArray.join(", ")} <br>
+        Total Marks: ${total} <br>
+        Average Marks: ${average.toFixed(2)} <br>
+        Result: ${result}
+        `;
+    };
+
+    // Display result in the page
+    document.getElementById("output").innerHTML = analyzeMarks(marks);
+</script>
+</body>
+</html>
