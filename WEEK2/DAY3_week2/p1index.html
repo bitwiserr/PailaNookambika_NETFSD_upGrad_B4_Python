@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #feedback-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #0078d7;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    #feedback-btn:hover {
+      background-color: #005a9e;
+    }
+    #confirmation {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+      display: none; /* hidden initially */
+    }
+  </style>
+</head>
+<body>
+  <h1>We Value Your Feedback</h1>
+  <button id="feedback-btn">Submit Feedback</button>
+  <p id="confirmation">Thank you! Your feedback has been submitted.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
