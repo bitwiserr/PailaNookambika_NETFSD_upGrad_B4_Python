@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Product Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    #search-box {
+      width: 300px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    li {
+      padding: 8px;
+      margin-bottom: 6px;
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+    #no-results {
+      margin-top: 20px;
+      color: red;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Product Search</h2>
+  <input type="text" id="search-box" placeholder="Search products...">
+  <ul id="product-list"></ul>
+  <p id="no-results">No Results Found</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
