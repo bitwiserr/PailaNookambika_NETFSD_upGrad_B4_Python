@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Landing Page</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Theme Override -->
+  <style>
+    :root {
+      --bs-primary: #0d6efd;   /* Custom primary color */
+      --bs-secondary: #6c757d;
+      --bs-dark: #212529;
+    }
+    body {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar with Offcanvas -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ShopEase</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Offcanvas Menu -->
+  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#newsletter">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="py-5 text-center bg-light" id="hero" style="margin-top:56px;">
+    <div class="container">
+      <h1 class="fw-bold">Welcome to ShopEase</h1>
+      <p class="lead">Your one-stop destination for electronics and more.</p>
+      <a href="#products" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Product Carousel -->
+  <section class="container my-5" id="products">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://via.placeholder.com/1200x400?text=Laptop+Deal" class="d-block w-100" alt="Laptop">
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/1200x400?text=Smartphone+Offer" class="d-block w-100" alt="Smartphone">
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/1200x400?text=Headphones+Discount" class="d-block w-100" alt="Headphones">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid Sections -->
+  <section class="container my-5">
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm h-100 text-center">
+          <h5>Fast Delivery</h5>
+          <p>Get your products delivered quickly and safely.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm h-100 text-center">
+          <h5>Secure Payment</h5>
+          <p>Multiple payment options with full security.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm h-100 text-center">
+          <h5>24/7 Support</h5>
+          <p>Our team is here to help you anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section class="py-5 bg-dark text-white text-center" id="newsletter">
+    <div class="container">
+      <h2 class="mb-3">Subscribe to Our Newsletter</h2>
+      <form class="row g-3 justify-content-center">
+        <div class="col-auto">
+          <input type="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-white text-center">
+    <p class="mb-0">&copy; 2026 ShopEase. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
