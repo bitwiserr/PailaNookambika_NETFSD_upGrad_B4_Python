@@ -45,3 +45,30 @@ CONSTRAINT FK_ParticipantSession FOREIGN KEY (SessionId) REFERENCES SessionInfo(
 );
 
 
+INSERT INTO UserInfo VALUES ('ambika@example.com','ambika','Admin','securePass1');
+INSERT INTO UserInfo VALUES ('trisha@example.com','trisha','Participant','mypwd123');
+
+INSERT INTO EventDetails VALUES (1,'Tech Summit','Technology','2026-05-10','Annual Tech Conference','Active');
+
+INSERT INTO SpeakersDetails VALUES (101,'Dr. cyber');
+
+INSERT INTO SessionInfo VALUES (201,1,'AI in 2026',101,'Future of AI','2026-05-10 10:00','2026-05-10 11:00','http://sessionlink.com');
+
+INSERT INTO ParticipantEventDetails VALUES (1,'ambika@example.com',1,201,1);
+
+SELECT EventName, EventCategory, EventDate
+FROM EventDetails
+WHERE Status = 'Active';
+
+SELECT s.SessionTitle, sp.SpeakerName, s.SessionStart, s.SessionEnd
+FROM SessionInfo s
+JOIN SpeakersDetails sp ON s.SpeakerId = sp.SpeakerId
+WHERE s.EventId = 1;
+
+SELECT p.ParticipantEmailId, u.UserName, s.SessionTitle
+FROM ParticipantEventDetails p
+JOIN UserInfo u ON p.ParticipantEmailId = u.EmailId
+JOIN SessionInfo s ON p.SessionId = s.SessionId
+WHERE p.IsAttended = 1;
+
+
